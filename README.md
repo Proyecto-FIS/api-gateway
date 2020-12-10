@@ -1,2 +1,1 @@
-# api-gateway
-Coffaine Api Gateway
+# Coffaine Api Gateway

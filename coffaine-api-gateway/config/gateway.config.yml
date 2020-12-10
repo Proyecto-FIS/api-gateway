@@ -1,0 +1,105 @@
+http:
+  port: 3000
+admin:
+  port: 9876
+  host: localhost
+apiEndpoints:
+  products:
+    host: localhost
+    paths: ['/products', '/products/*']
+  authentication:
+    host: localhost
+    paths: ['/auth/*']
+  customers:
+    host: localhost
+    paths: ['/customers','/customers/*']
+  toasters:
+    host: localhost
+    paths: ['/toasters','/toasters/*']
+  deliveries:
+    host: localhost
+    paths: ['/deliveries']
+  returns:
+    host: localhost
+    paths: ['/returns']
+  billing-profile:
+    host: localhost
+    paths: ['/billing-profile']
+  history:
+    host: localhost
+    paths: ['/history']
+  payment:
+    host: localhost
+    paths: ['/payment']
+  return:
+    host: localhost
+    paths: ['/return']
+  subscription:
+    host: localhost
+    paths: ['/subscription']
+serviceEndpoints:
+  productsService:
+    url: 'https://coffaine-products.herokuapp.com/api/v1'
+  usersService:
+    url: 'https://coffaine-users.herokuapp.com/api/v1'
+  deliveriesService:
+    url: 'https://coffaine-deliveries.herokuapp.com/api/v1'
+  salesService:
+    url: 'https://coffaine-sales.herokuapp.com/api/v1'
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+pipelines:
+  productsPipeline:
+    apiEndpoints:
+      - products
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: productsService
+              changeOrigin: true
+  usersPipeline:
+    apiEndpoints:
+      - authentication
+      - customers
+      - toasters
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: usersService
+              changeOrigin: true
+  deliveriesPipeline:
+    apiEndpoints:
+      - deliveries
+      - returns
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: deliveriesService
+              changeOrigin: true
+  salesPipeline:
+    apiEndpoints:
+      - billing-profile
+      - history
+      - payment
+      - return
+      - subscription
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: salesService
+              changeOrigin: true
