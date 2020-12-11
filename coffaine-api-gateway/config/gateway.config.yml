@@ -39,7 +39,7 @@ apiEndpoints:
     paths: ["/subscription"]
 serviceEndpoints:
   productsService:
-    url: "https://coffaine-products.herokuapp.com/api/v1"
+    url: "http://coffaine-products.herokuapp.com/api/v1"
   usersService:
     url: "https://coffaine-users.herokuapp.com/api/v1"
   deliveriesService:
