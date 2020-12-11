@@ -2,19 +2,19 @@ http:
   port: ${PORT:-3000}
 admin:
   port: 9876
-  host: localhost
+  host: 0.0.0.0
 apiEndpoints:
   products:
-    host: localhost
+    host: 0.0.0.0
     paths: ["/products", "/products/*"]
   authentication:
-    host: localhost
+    host: 0.0.0.0
     paths: ["/auth/*"]
   customers:
-    host: localhost
+    host: 0.0.0.0
     paths: ["/customers", "/customers/*"]
   toasters:
-    host: localhost
+    host: 0.0.0.0
     paths: ["/toasters", "/toasters/*"]
   deliveries:
     host: localhost
@@ -39,7 +39,7 @@ apiEndpoints:
     paths: ["/subscription"]
 serviceEndpoints:
   productsService:
-    url: "http://coffaine-products.herokuapp.com/api/v1"
+    url: "https://coffaine-products.herokuapp.com/api/v1"
   usersService:
     url: "https://coffaine-users.herokuapp.com/api/v1"
   deliveriesService:
