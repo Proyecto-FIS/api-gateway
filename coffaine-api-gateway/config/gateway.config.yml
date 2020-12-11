@@ -1,51 +1,51 @@
 http:
-  port: 3000
+  port: ${PORT:-3000}
 admin:
   port: 9876
   host: localhost
 apiEndpoints:
   products:
     host: localhost
-    paths: ['/products', '/products/*']
+    paths: ["/products", "/products/*"]
   authentication:
     host: localhost
-    paths: ['/auth/*']
+    paths: ["/auth/*"]
   customers:
     host: localhost
-    paths: ['/customers','/customers/*']
+    paths: ["/customers", "/customers/*"]
   toasters:
     host: localhost
-    paths: ['/toasters','/toasters/*']
+    paths: ["/toasters", "/toasters/*"]
   deliveries:
     host: localhost
-    paths: ['/deliveries']
+    paths: ["/deliveries"]
   returns:
     host: localhost
-    paths: ['/returns']
+    paths: ["/returns"]
   billing-profile:
     host: localhost
-    paths: ['/billing-profile']
+    paths: ["/billing-profile"]
   history:
     host: localhost
-    paths: ['/history']
+    paths: ["/history"]
   payment:
     host: localhost
-    paths: ['/payment']
+    paths: ["/payment"]
   return:
     host: localhost
-    paths: ['/return']
+    paths: ["/return"]
   subscription:
     host: localhost
-    paths: ['/subscription']
+    paths: ["/subscription"]
 serviceEndpoints:
   productsService:
-    url: 'https://coffaine-products.herokuapp.com/api/v1'
+    url: "https://coffaine-products.herokuapp.com/api/v1"
   usersService:
-    url: 'https://coffaine-users.herokuapp.com/api/v1'
+    url: "https://coffaine-users.herokuapp.com/api/v1"
   deliveriesService:
-    url: 'https://coffaine-deliveries.herokuapp.com/api/v1'
+    url: "https://coffaine-deliveries.herokuapp.com/api/v1"
   salesService:
-    url: 'https://coffaine-sales.herokuapp.com/api/v1'
+    url: "https://coffaine-sales.herokuapp.com/api/v1"
 policies:
   - basic-auth
   - cors
@@ -60,8 +60,8 @@ pipelines:
     apiEndpoints:
       - products
     policies:
-    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
-    # - key-auth:
+      # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+      # - key-auth:
       - proxy:
           - action:
               serviceEndpoint: productsService
@@ -72,8 +72,8 @@ pipelines:
       - customers
       - toasters
     policies:
-    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
-    # - key-auth:
+      # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+      # - key-auth:
       - proxy:
           - action:
               serviceEndpoint: usersService
@@ -83,8 +83,8 @@ pipelines:
       - deliveries
       - returns
     policies:
-    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
-    # - key-auth:
+      # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+      # - key-auth:
       - proxy:
           - action:
               serviceEndpoint: deliveriesService
@@ -97,8 +97,8 @@ pipelines:
       - return
       - subscription
     policies:
-    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
-    # - key-auth:
+      # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+      # - key-auth:
       - proxy:
           - action:
               serviceEndpoint: salesService

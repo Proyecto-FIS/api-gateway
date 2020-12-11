@@ -11,6 +11,4 @@ RUN npm install
 WORKDIR /coffaine-api-gateway
 COPY coffaine-api-gateway/config config
 
-EXPOSE 3000
-
 CMD npm start
