@@ -2,40 +2,40 @@ http:
   port: ${PORT:-3000}
 admin:
   port: 9876
-  host: 0.0.0.0
+  host: ${HOST:-localhost}
 apiEndpoints:
   products:
-    host: 0.0.0.0
+    host: ${HOST:-localhost}
     paths: ["/products", "/products/*"]
   authentication:
-    host: 0.0.0.0
+    host: ${HOST:-localhost}
     paths: ["/auth/*"]
   customers:
-    host: 0.0.0.0
+    host: ${HOST:-localhost}
     paths: ["/customers", "/customers/*"]
   toasters:
-    host: 0.0.0.0
+    host: ${HOST:-localhost}
     paths: ["/toasters", "/toasters/*"]
   deliveries:
-    host: localhost
+    host: ${HOST:-localhost}
     paths: ["/deliveries"]
   returns:
-    host: localhost
+    host: ${HOST:-localhost}
     paths: ["/returns"]
   billing-profile:
-    host: localhost
+    host: ${HOST:-localhost}
     paths: ["/billing-profile"]
   history:
-    host: localhost
+    host: ${HOST:-localhost}
     paths: ["/history"]
   payment:
-    host: localhost
+    host: ${HOST:-localhost}
     paths: ["/payment"]
   return:
-    host: localhost
+    host: ${HOST:-localhost}
     paths: ["/return"]
   subscription:
-    host: localhost
+    host: ${HOST:-localhost}
     paths: ["/subscription"]
 serviceEndpoints:
   productsService:
