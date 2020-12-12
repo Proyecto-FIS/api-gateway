@@ -1,14 +1,14 @@
 FROM node:15-alpine
 
 WORKDIR /coffaine-api-gateway
-COPY coffaine-api-gateway/package.json .
-COPY coffaine-api-gateway/package-lock.json .
-COPY coffaine-api-gateway/server.js .
-COPY coffaine-api-gateway/.yo-rc.json .
-COPY coffaine-api-gateway/.babelrc .
+COPY package.json .
+COPY package-lock.json .
+COPY server.js .
+COPY .yo-rc.json .
+COPY .babelrc .
 RUN npm install
 
 WORKDIR /coffaine-api-gateway
-COPY coffaine-api-gateway/config config
+COPY config config
 
 CMD npm start
