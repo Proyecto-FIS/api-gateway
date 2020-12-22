@@ -6,7 +6,7 @@ admin:
 apiEndpoints:
   products:
     host: "*"
-    paths: ["/products", "/products/*"]
+    paths: ["/products", "/products/*", "/uploadImage"]
   authentication:
     host: "*"
     paths: ["/auth/*"]
