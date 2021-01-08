@@ -19,9 +19,6 @@ apiEndpoints:
   deliveries:
     host: "*"
     paths: ["/deliveries"]
-  returns:
-    host: "*"
-    paths: ["/returns"]
   billing-profile:
     host: "*"
     paths: ["/billing-profile"]
@@ -31,21 +28,18 @@ apiEndpoints:
   payment:
     host: "*"
     paths: ["/payment"]
-  return:
-    host: "*"
-    paths: ["/return"]
   subscription:
     host: "*"
     paths: ["/subscription"]
 serviceEndpoints:
   productsService:
-    url: "https://coffaine-products.herokuapp.com/api/v1"
+    url: ${PRODUCTS_URL}
   usersService:
-    url: "https://coffaine-users.herokuapp.com/api/v1"
+    url: ${USERS_URL}
   deliveriesService:
-    url: "https://coffaine-deliveries.herokuapp.com/api/v1"
+    url: ${DELIVERIES_URL}
   salesService:
-    url: "https://coffaine-sales.herokuapp.com/api/v1"
+    url: ${SALES_URL}
 policies:
   - basic-auth
   - cors
@@ -81,7 +75,6 @@ pipelines:
   deliveriesPipeline:
     apiEndpoints:
       - deliveries
-      - returns
     policies:
       # Uncomment `key-auth:` when instructed to in the Getting Started guide.
       # - key-auth:
@@ -94,7 +87,6 @@ pipelines:
       - billing-profile
       - history
       - payment
-      - return
       - subscription
     policies:
       # Uncomment `key-auth:` when instructed to in the Getting Started guide.
