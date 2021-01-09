@@ -31,6 +31,9 @@ apiEndpoints:
   subscription:
     host: "*"
     paths: ["/subscription"]
+  stripewebhook:
+    host: "*"
+    paths: ["/stripewebhook"]
 serviceEndpoints:
   productsService:
     url: ${PRODUCTS_URL}
@@ -88,6 +91,7 @@ pipelines:
       - history
       - payment
       - subscription
+      - stripewebhook
     policies:
       # Uncomment `key-auth:` when instructed to in the Getting Started guide.
       # - key-auth:
